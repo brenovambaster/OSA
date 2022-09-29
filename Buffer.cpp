@@ -70,12 +70,20 @@ void Buffer::generateIndiceId(ifstream &input) {
 
 /**
  * @brief Retorna a posição do índice ao final da leitura do registro.
+ * O arquivo  que é passado por parâmetro já deve vir aberto;
  * @param input
  * @return  size_t
  *
  */
 size_t Buffer::readBinaryFile(ifstream &input) {
-    //getline(input, m1.show_id, ';');
+    //getline(input, m1.show_id, ';')
+    Movie mov;
+    input.seekg(0, ios::end);
+    int size = (int) input.tellg(); /* Vai para o final do arquivo para saber o tamnho dele */
+    input.seekg(0, ios::beg);
+    while (input.tellg() < size) {
+        //input.read((char*) mov.)
+    }
     return input.tellg();
 }
 

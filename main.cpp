@@ -22,11 +22,15 @@ int main() {
     f1.open(data);
     f2.open(source);
 
-
+    // LENDO O ARQUIVO E EXTRAINDO OS DADOS:
+    int cabecalho = 1; // estratégia para não ler o cabecaho do arquivo.
     while (!data.eof()) {
+        if (cabecalho)
+            b.GetData(data);
         b.GetData(data);
-        //b.WriteDataInConsole();
         b.WriteBinarySource(source);
+
+
     }
 
 
