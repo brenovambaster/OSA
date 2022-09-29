@@ -24,7 +24,7 @@ int main() {
 
 
     while (!data.eof()) {
-        size_t pos = b.GetData(data);
+        b.GetData(data);
         //b.WriteDataInConsole();
         b.WriteBinarySource(source);
     }

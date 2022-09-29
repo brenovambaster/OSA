@@ -12,13 +12,11 @@ class Buffer {
 public:
     Movie m1;
 
-    size_t GetData(ifstream &F);
+    void GetData(ifstream &F);
 
     void WriteDataInConsole();
 
     void WriteBinarySource(ofstream &F);
-
-    //String searchTitle(String title);
 
     /**
      *
@@ -26,8 +24,7 @@ public:
      */
     size_t readBinaryFile(ifstream &input);
 
-
-    void generateIndiceID(ifstream &input);
+    void generateIndiceId(ifstream &input);
 
     virtual ~Buffer();
 };

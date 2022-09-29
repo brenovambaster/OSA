@@ -8,8 +8,7 @@
 
 using namespace std;
 
-size_t Buffer::GetData(ifstream &F) {
-    size_t pos = F.tellg();
+void Buffer::GetData(ifstream &F) {
     getline(F, m1.show_id, ';');
     getline(F, m1.type, ';');
     getline(F, m1.title, ';');
@@ -22,7 +21,6 @@ size_t Buffer::GetData(ifstream &F) {
     getline(F, m1.duration, ';');
     getline(F, m1.listed_in, ';');
     getline(F, m1.description, '\n');
-    return pos;
 }
 
 /**
@@ -62,19 +60,23 @@ void Buffer::WriteBinarySource(ofstream &F) {
 
 /**
  * @brief Gerar 1 arquivo de índices direto mapeando o ID de todos os registros do arquivo.
- *
  * @example | posicao_noArquivo ID_filme |
- *
- * @def Usa a função readBinaryfile() para retornar a posaicao  tellg();
+ * @def Usa a função readBinaryfile() para retornar a posição  tellg();
  */
-void Buffer::generateIndiceID(ifstream &input) {
-    size_t pos = readBinaryFile(input);
+void Buffer::generateIndiceId(ifstream &input) {
+    //size_t pos = readBinaryFile(input);
+
 }
 
+/**
+ * @brief Retorna a posição do índice ao final da leitura do registro.
+ * @param input
+ * @return  size_t
+ *
+ */
 size_t Buffer::readBinaryFile(ifstream &input) {
-
-
-    return 0;
+    //getline(input, m1.show_id, ';');
+    return input.tellg();
 }
 
 
