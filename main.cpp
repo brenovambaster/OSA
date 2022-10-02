@@ -16,15 +16,15 @@ int main() {
     File f1, f2, f3, f4;
     f1.name = "netflix_titles.csv";
     f2.name = "Binary_transcription.bin";
-    f3.name = "out2";
+    f3.name = "IndiceDiretoId.bin";
     f4.name = "Binary_transcription.bin";
 
     ifstream data, input;
-    ofstream source, out2;
+    ofstream source, indiceDireto;
 
     f1.open(data);
     f2.open(source);
-    f3.open(out2);
+    f3.open(indiceDireto);
     f4.open_binary(input);
 
 
@@ -41,12 +41,12 @@ int main() {
         }
 
     }
-
-    b.generateIndiceId(input, out2);
+    source.close();
+    b.generateIndiceId(input, indiceDireto);
 
     data.close();
     input.close();
-    out2.close();
-    source.close();
+    indiceDireto.close();
+
     return 0;
 }

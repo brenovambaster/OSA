@@ -3,9 +3,7 @@
 //
 
 #include "Buffer.h"
-#include <fstream>
-#include <string.h>
-#include "File.h"
+
 
 using namespace std;
 
@@ -69,11 +67,13 @@ void Buffer::WriteBinarySource(ofstream &F) {
  * @def Usa a função readBinaryfile() para retornar a posição  tellg();
  */
 void Buffer::generateIndiceId(ifstream &input, ofstream &output) {
-    size_t pos;
-    for (int i = 0; i < 3; ++i) {
-        pos = readBinaryFile(input);
+
+    size_t dados;
+    while (!input.eof()) {
+        dados = readBinaryFile(input, output);
+
     }
-    cout << "\nposicao: " << pos;
+
 
 }
 
@@ -84,9 +84,11 @@ void Buffer::generateIndiceId(ifstream &input, ofstream &output) {
  * @return  size_t
  *
  */
-size_t Buffer::readBinaryFile(ifstream &input) {
-    int tamanho = 0;
+int
 
+Buffer::readBinaryFile(ifstream &input, ofstream &output) {
+    int tamanho = 0, indice = 0;
+    indice = input.tellg();
     cout << "\n################ REGISTRO ##################\n";
     input.read((char *) &tamanho, sizeof(int)); // ler o comprimeoto em binario da string
     char *buffer = new char[tamanho];
@@ -94,20 +96,18 @@ size_t Buffer::readBinaryFile(ifstream &input) {
     cout << "POSICAO CABEÇA DE LEITURA:: " << input.tellg() << endl;
     input.read(buffer, tamanho); // ler os dados da string
     buffer[tamanho] = '\0';
-    cout << "\n>>>>REGISTRO:" << buffer << endl;
+    // cout << "\n>>>>REGISTRO:" << buffer << endl;
 
+    char *id = new char[7];
+    getId(buffer, (char *) id);
+    cout << "\nID DO REGISTRO:" << id << endl;
+
+    output << id << '|' << indice << endl;
     delete[] buffer;
-    return input.tellg();
+    delete[]id;
+    return indice;
 }
 
-int Buffer::tamanho_cadeia(char *cadeia) {
-    int i = 0, count = 0;
-    while (cadeia[i] != '\0') {
-        count++;
-        i++;
-    }
-    return count;
-}
 
 Buffer::~Buffer() {
     cout << "Destructor the Buffer\n";

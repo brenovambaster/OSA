@@ -3,4 +3,4 @@ project(projeto2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(projeto2 main.cpp Movie.cpp Movie.h Buffer.cpp Buffer.h File.cpp File.h)
+add_executable(projeto2 main.cpp Movie.cpp Movie.h Buffer.cpp Buffer.h File.cpp File.h funcoes.cpp funcoes.h Indice.cpp Indice.h)

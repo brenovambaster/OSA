@@ -73,6 +73,18 @@ build CMakeFiles/projeto2.dir/File.cpp.obj: CXX_COMPILER__projeto2_Debug C$:/Use
   OBJECT_DIR = CMakeFiles\projeto2.dir
   OBJECT_FILE_DIR = CMakeFiles\projeto2.dir
 
+build CMakeFiles/projeto2.dir/funcoes.cpp.obj: CXX_COMPILER__projeto2_Debug C$:/Users/breno/CLionProjects/projeto2/funcoes.cpp || cmake_object_order_depends_target_projeto2
+  DEP_FILE = CMakeFiles\projeto2.dir\funcoes.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\projeto2.dir
+  OBJECT_FILE_DIR = CMakeFiles\projeto2.dir
+
+build CMakeFiles/projeto2.dir/Indice.cpp.obj: CXX_COMPILER__projeto2_Debug C$:/Users/breno/CLionProjects/projeto2/Indice.cpp || cmake_object_order_depends_target_projeto2
+  DEP_FILE = CMakeFiles\projeto2.dir\Indice.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\projeto2.dir
+  OBJECT_FILE_DIR = CMakeFiles\projeto2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target projeto2
@@ -81,7 +93,7 @@ build CMakeFiles/projeto2.dir/File.cpp.obj: CXX_COMPILER__projeto2_Debug C$:/Use
 #############################################
 # Link the executable projeto2.exe
 
-build projeto2.exe: CXX_EXECUTABLE_LINKER__projeto2_Debug CMakeFiles/projeto2.dir/main.cpp.obj CMakeFiles/projeto2.dir/Movie.cpp.obj CMakeFiles/projeto2.dir/Buffer.cpp.obj CMakeFiles/projeto2.dir/File.cpp.obj
+build projeto2.exe: CXX_EXECUTABLE_LINKER__projeto2_Debug CMakeFiles/projeto2.dir/main.cpp.obj CMakeFiles/projeto2.dir/Movie.cpp.obj CMakeFiles/projeto2.dir/Buffer.cpp.obj CMakeFiles/projeto2.dir/File.cpp.obj CMakeFiles/projeto2.dir/funcoes.cpp.obj CMakeFiles/projeto2.dir/Indice.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\projeto2.dir

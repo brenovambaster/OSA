@@ -6,6 +6,11 @@
 #define PROJETO2_BUFFER_H
 
 #include "Movie.h"
+#include "Indice.h"
+#include <fstream>
+#include <string.h>
+#include "File.h"
+#include "funcoes.h"
 
 
 class Buffer {
@@ -23,11 +28,10 @@ public:
      *
      * @return Retorna a posicão no final da leitura de cada registro
      */
-    size_t readBinaryFile(ifstream &input);
+    int readBinaryFile(ifstream &input, ofstream &output);
 
     void generateIndiceId(ifstream &input, ofstream &output);
 
-    int tamanho_cadeia(char *cadeia);
 
     virtual ~Buffer();
 };
