@@ -16,6 +16,7 @@ public:
 
     void WriteDataInConsole();
 
+
     void WriteBinarySource(ofstream &F);
 
     /**
@@ -24,7 +25,9 @@ public:
      */
     size_t readBinaryFile(ifstream &input);
 
-    void generateIndiceId(ifstream &input);
+    void generateIndiceId(ifstream &input, ofstream &output);
+
+    int tamanho_cadeia(char *cadeia);
 
     virtual ~Buffer();
 };

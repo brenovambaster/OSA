@@ -5,6 +5,7 @@
 #include "Buffer.h"
 #include <fstream>
 #include <string.h>
+#include "File.h"
 
 using namespace std;
 
@@ -49,22 +50,30 @@ void Buffer::WriteBinarySource(ofstream &F) {
             + m1.date_added + "|" + m1.release_year + "|" + m1.rating + "|" + m1.duration + "|" + m1.listed_in + "|"
             + m1.description;
 
-    int dummy_size = dummy.length();
-    char array_data[dummy_size + 1]; /*!< Array char gerado para armazenar o registro @example ['t','e','s','t'] */
+    int dummy_size = (int) dummy.length();
+    char array_data[dummy_size]; /*!< Array char gerado para armazenar o registro @example ['t','e','s','t'] */
     strcpy(array_data, dummy.c_str());
 
     F.write((char *) &dummy_size, sizeof(dummy_size));
     F.write(array_data, sizeof(array_data));
+
 }
 
 
 /**
+ *
+ * @param input arquivo ja aberto
+ * @param output arquivo ja aberto
  * @brief Gerar 1 arquivo de índices direto mapeando o ID de todos os registros do arquivo.
  * @example | posicao_noArquivo ID_filme |
  * @def Usa a função readBinaryfile() para retornar a posição  tellg();
  */
-void Buffer::generateIndiceId(ifstream &input) {
-    //size_t pos = readBinaryFile(input);
+void Buffer::generateIndiceId(ifstream &input, ofstream &output) {
+    size_t pos;
+    for (int i = 0; i < 3; ++i) {
+        pos = readBinaryFile(input);
+    }
+    cout << "\nposicao: " << pos;
 
 }
 
@@ -76,17 +85,29 @@ void Buffer::generateIndiceId(ifstream &input) {
  *
  */
 size_t Buffer::readBinaryFile(ifstream &input) {
-    //getline(input, m1.show_id, ';')
-    Movie mov;
-    input.seekg(0, ios::end);
-    int size = (int) input.tellg(); /* Vai para o final do arquivo para saber o tamnho dele */
-    input.seekg(0, ios::beg);
-    while (input.tellg() < size) {
-        //input.read((char*) mov.)
-    }
+    int tamanho = 0;
+
+    cout << "\n################ REGISTRO ##################\n";
+    input.read((char *) &tamanho, sizeof(int)); // ler o comprimeoto em binario da string
+    char *buffer = new char[tamanho];
+    cout << "TAMANHO DO REGISTRO:" << tamanho << endl; // tamanho da string a ser lida;
+    cout << "POSICAO CABEÇA DE LEITURA:: " << input.tellg() << endl;
+    input.read(buffer, tamanho); // ler os dados da string
+    buffer[tamanho] = '\0';
+    cout << "\n>>>>REGISTRO:" << buffer << endl;
+
+    delete[] buffer;
     return input.tellg();
 }
 
+int Buffer::tamanho_cadeia(char *cadeia) {
+    int i = 0, count = 0;
+    while (cadeia[i] != '\0') {
+        count++;
+        i++;
+    }
+    return count;
+}
 
 Buffer::~Buffer() {
     cout << "Destructor the Buffer\n";

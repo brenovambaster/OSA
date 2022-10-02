@@ -22,6 +22,8 @@ public:
     int open(ofstream &input);
 
     virtual ~File();
+
+    int open_binary(ifstream &input);
 };
 
 

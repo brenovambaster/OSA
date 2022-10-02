@@ -1,6 +1,16 @@
 # ninja log v5
+12	1763	6863829474993612	CMakeFiles/projeto2.dir/Buffer.cpp.obj	d24448e3b436790d
 11	2272	6855908299697666	CMakeFiles/projeto2.dir/Movie.cpp.obj	f64cdaf4e4a40f3
-16	2288	6855908299857237	CMakeFiles/projeto2.dir/Buffer.cpp.obj	d24448e3b436790d
-5	2291	6855908299887163	CMakeFiles/projeto2.dir/main.cpp.obj	a5dab86b9ca7dc7c
-2937	3998	6855908317220300	projeto2.exe	e50239ea243ae3e
-2273	2937	6855908306656773	CMakeFiles/projeto2.dir/File.cpp.obj	bc1f4134a4a7219f
+563	920	6863838457705344	projeto2.exe	e50239ea243ae3e
+5	562	6863838454185545	CMakeFiles/projeto2.dir/main.cpp.obj	a5dab86b9ca7dc7c
+8	548	6863832288151053	CMakeFiles/projeto2.dir/File.cpp.obj	bc1f4134a4a7219f
+6	2065	6863847285431982	CMakeFiles/projeto2.dir/Buffer.cpp.obj	d24448e3b436790d
+2066	2307	6863847287845509	projeto2.exe	e50239ea243ae3e
+6	492	6863847798000928	CMakeFiles/projeto2.dir/Buffer.cpp.obj	d24448e3b436790d
+493	633	6863847799359897	projeto2.exe	e50239ea243ae3e
+7	1225	6863850363423846	CMakeFiles/projeto2.dir/Buffer.cpp.obj	d24448e3b436790d
+1225	1406	6863850365179145	projeto2.exe	e50239ea243ae3e
+5	655	6863851298138473	CMakeFiles/projeto2.dir/Buffer.cpp.obj	d24448e3b436790d
+656	802	6863851299564669	projeto2.exe	e50239ea243ae3e
+7	780	6863851529445120	CMakeFiles/projeto2.dir/Buffer.cpp.obj	d24448e3b436790d
+781	1028	6863851531888590	projeto2.exe	e50239ea243ae3e
