@@ -46,7 +46,7 @@ void Buffer::WriteBinarySource(ofstream &F) {
 
     dummy = m1.show_id + "|" + m1.type + "|" + m1.title + "|" + m1.director + "|" + m1.cast + "|" + m1.country + "|"
             + m1.date_added + "|" + m1.release_year + "|" + m1.rating + "|" + m1.duration + "|" + m1.listed_in + "|"
-            + m1.description;
+            + m1.description + '\0';
 
     int dummy_size = (int) dummy.length();
     char array_data[dummy_size]; /*!< Array char gerado para armazenar o registro @example ['t','e','s','t'] */
@@ -67,14 +67,9 @@ void Buffer::WriteBinarySource(ofstream &F) {
  * @def Usa a função readBinaryfile() para retornar a posição  tellg();
  */
 void Buffer::generateIndiceId(ifstream &input, ofstream &output) {
-
-    size_t dados;
     while (!input.eof()) {
-        dados = readBinaryFile(input, output);
-
+        readBinaryFile(input, output);
     }
-
-
 }
 
 /**
@@ -87,20 +82,16 @@ void Buffer::generateIndiceId(ifstream &input, ofstream &output) {
 int
 
 Buffer::readBinaryFile(ifstream &input, ofstream &output) {
+
     int tamanho = 0, indice = 0;
     indice = input.tellg();
-    cout << "\n################ REGISTRO ##################\n";
-    input.read((char *) &tamanho, sizeof(int)); // ler o comprimeoto em binario da string
+    //cout << "\n################ REGISTRO ##################\n";
+    input.read((char *) &tamanho, sizeof(tamanho)); // ler o comprimeoto em binario da string
     char *buffer = new char[tamanho];
-    cout << "TAMANHO DO REGISTRO:" << tamanho << endl; // tamanho da string a ser lida;
-    cout << "POSICAO CABEÇA DE LEITURA:: " << input.tellg() << endl;
     input.read(buffer, tamanho); // ler os dados da string
-    buffer[tamanho] = '\0';
-    // cout << "\n>>>>REGISTRO:" << buffer << endl;
-
     char *id = new char[7];
+
     getId(buffer, (char *) id);
-    cout << "\nID DO REGISTRO:" << id << endl;
 
     output << id << '|' << indice << endl;
     delete[] buffer;

@@ -12,3 +12,11 @@ void getId(char *registro, char *id) {
     }
     id[i] = '\0';
 }
+int tamanho_cadeia(char *cadeia) {
+    int i = 0, count = 0;
+    while (cadeia[i] != '\0') {
+        count++;
+        i++;
+    }
+    return count;
+}

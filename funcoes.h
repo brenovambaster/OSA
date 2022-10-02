@@ -7,4 +7,6 @@
 
 void getId(char *registro, char *id);
 
+int tamanho_cadeia(char *cadeia);
+
 #endif //PROJETO2_FUNCOES_H
