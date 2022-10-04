@@ -1,6 +1,6 @@
 ### Objetivos
 - [x] Etapa 1;
-- [ ] Gerar 1 arquivo de índices direto mapeando o ID de todos os registros do arquivo;
+- [x] Gerar 1 arquivo de índices direto mapeando o ID de todos os registros do arquivo;
 - [ ] Gerar 1 arquivo de índice indireto para recuperar todos os IDs de um registro, pelo seu título;
 - [ ] Possibilitar a pesquisa e exibição de um determinado registro pelo seu SHOW_ID ou pelo seu TÍTULO;
 - [ ] Informar estatísticas do arquivo lido como, a quantidade de registros, o tamanho médio em

@@ -16,7 +16,7 @@ int main() {
     File f1, f2, f3, f4;
     f1.name = "netflix_titles.csv";
     f2.name = "Binary_transcription.bin";
-    f3.name = "IndiceDiretoId.bin";
+    f3.name = "IndicePrimario.bin";
     f4.name = "Binary_transcription.bin";
 
     ifstream data, input;
