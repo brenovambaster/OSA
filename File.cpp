@@ -15,7 +15,7 @@ int File::open(ifstream &input) {
 }
 
 int File::open_binary(ifstream &input) {
-    input.open(name, ios_base::in | ios_base::binary);
+    input.open(name, ios_base::binary);
     if (!input.is_open()) {
         cerr << "Erro ao abrir arquivo: " << name;
         return 0;
@@ -24,7 +24,7 @@ int File::open_binary(ifstream &input) {
 }
 
 int File::open(ofstream &input) {
-    input.open(name, ios_base::out | ios_base::trunc);
+    input.open(name, ios_base::binary);
     if (!input.is_open()) {
         cerr << "Erro ao abrir arquivo: " << name;
         return 0;

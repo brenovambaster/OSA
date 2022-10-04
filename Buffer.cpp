@@ -46,14 +46,11 @@ void Buffer::WriteBinarySource(ofstream &F) {
 
     dummy = m1.show_id + "|" + m1.type + "|" + m1.title + "|" + m1.director + "|" + m1.cast + "|" + m1.country + "|"
             + m1.date_added + "|" + m1.release_year + "|" + m1.rating + "|" + m1.duration + "|" + m1.listed_in + "|"
-            + m1.description + '\0';
+            + m1.description;
 
-    int dummy_size = (int) dummy.length();
-    char array_data[dummy_size]; /*!< Array char gerado para armazenar o registro @example ['t','e','s','t'] */
-    strcpy(array_data, dummy.c_str());
-
+    int dummy_size = (int) dummy.length();// retorna o valor sem o \0;
     F.write((char *) &dummy_size, sizeof(dummy_size));
-    F.write(array_data, sizeof(array_data));
+    F.write(dummy.c_str(), dummy_size);
 
 }
 
@@ -67,7 +64,11 @@ void Buffer::WriteBinarySource(ofstream &F) {
  * @def Usa a função readBinaryfile() para retornar a posição  tellg();
  */
 void Buffer::generateIndiceId(ifstream &input, ofstream &output) {
-    while (!input.eof()) {
+    input.seekg(0, ios_base::end);
+    int final_arquivo = input.tellg();
+    input.seekg(0, ios_base::beg);
+
+    while (input.tellg() < final_arquivo) {
         readBinaryFile(input, output);
     }
 }
@@ -85,15 +86,15 @@ Buffer::readBinaryFile(ifstream &input, ofstream &output) {
 
     int tamanho = 0, indice = 0;
     indice = input.tellg();
-    //cout << "\n################ REGISTRO ##################\n";
-    input.read((char *) &tamanho, sizeof(tamanho)); // ler o comprimeoto em binario da string
-    char *buffer = new char[tamanho];
+    input.read((char *) &tamanho, sizeof(int)); // ler o comprimeoto em binario da string
+    char *buffer = new char[tamanho + 1];
     input.read(buffer, tamanho); // ler os dados da string
+    buffer[tamanho] = '\0';
     char *id = new char[7];
 
-    getId(buffer, (char *) id);
-
+    getId(buffer, id);
     output << id << '|' << indice << endl;
+
     delete[] buffer;
     delete[]id;
     return indice;
