@@ -63,13 +63,13 @@ void Buffer::WriteBinarySource(ofstream &F) {
  * @example | posicao_noArquivo ID_filme |
  * @def Usa a função readBinaryfile() para retornar a posição  tellg();
  */
-void Buffer::generateIndiceId(ifstream &input, ofstream &output) {
+void Buffer::generateIndiceIdPimary_Secondary(ifstream &input, ofstream &output) {
     input.seekg(0, ios_base::end);
     int final_arquivo = input.tellg();
     input.seekg(0, ios_base::beg);
 
     while (input.tellg() < final_arquivo) {
-        readBinaryFile(input, output);
+        generateFiles(input, output);
     }
 }
 
@@ -82,7 +82,13 @@ void Buffer::generateIndiceId(ifstream &input, ofstream &output) {
  */
 int
 
-Buffer::readBinaryFile(ifstream &input, ofstream &output) {
+/**
+ * @brief 
+ * @param input
+ * @param output
+ * @return
+ */
+Buffer::generateFiles(ifstream &input, ofstream &output) {
 
     int tamanho = 0, indice = 0;
     indice = input.tellg();

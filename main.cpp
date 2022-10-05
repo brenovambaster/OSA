@@ -42,7 +42,7 @@ int main() {
 
     }
     source.close();
-    b.generateIndiceId(input, indiceDireto);
+    b.generateIndiceIdPimary_Secondary(input, indiceDireto);
 
     data.close();
     input.close();
