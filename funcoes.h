@@ -5,7 +5,11 @@
 #ifndef PROJETO2_FUNCOES_H
 #define PROJETO2_FUNCOES_H
 
-void getId(char *registro, char *id);
+
+int inicio_title(const char *registro, int inicio_type);
+int getId(const char *registro, char *id);
+
+void getTitle(const char *registro, char *title, int initialPosition);
 
 int tamanho_cadeia(char *cadeia);
 

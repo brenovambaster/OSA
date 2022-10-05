@@ -13,18 +13,20 @@ int main() {
     Buffer b;
 
 
-    File f1, f2, f3, f4;
+    File f1, f2, f3, f4, f5;
     f1.name = "netflix_titles.csv";
     f2.name = "Binary_transcription.bin";
     f3.name = "IndicePrimario.bin";
     f4.name = "Binary_transcription.bin";
-
-    ifstream data, input;
-    ofstream source, indiceDireto;
+    f5.name = "IndiceSecundario.txt";
+    ifstream
+            data, input;
+    ofstream source, indiceDireto, indiceSecundario;
 
     f1.open(data);
     f2.open(source);
     f3.open(indiceDireto);
+    f5.open_out(indiceSecundario);
     f4.open_binary(input);
 
 
@@ -42,11 +44,12 @@ int main() {
 
     }
     source.close();
-    b.generateIndiceIdPimary_Secondary(input, indiceDireto);
+    b.generateIndiceIdPimary_Secondary(input, indiceDireto, indiceSecundario);
 
     data.close();
     input.close();
     indiceDireto.close();
+    indiceSecundario.close();
 
     return 0;
 }

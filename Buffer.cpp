@@ -63,13 +63,13 @@ void Buffer::WriteBinarySource(ofstream &F) {
  * @example | posicao_noArquivo ID_filme |
  * @def Usa a função readBinaryfile() para retornar a posição  tellg();
  */
-void Buffer::generateIndiceIdPimary_Secondary(ifstream &input, ofstream &output) {
+void Buffer::generateIndiceIdPimary_Secondary(ifstream &input, ofstream &indiceDireto, ofstream &indiceSecundario) {
     input.seekg(0, ios_base::end);
     int final_arquivo = input.tellg();
     input.seekg(0, ios_base::beg);
 
     while (input.tellg() < final_arquivo) {
-        generateFiles(input, output);
+        generateFiles(input, indiceDireto, indiceSecundario);
     }
 }
 
@@ -85,23 +85,27 @@ int
 /**
  * @brief 
  * @param input
- * @param output
+ * @param indiceDireto
  * @return
  */
-Buffer::generateFiles(ifstream &input, ofstream &output) {
+Buffer::generateFiles(ifstream &input, ofstream &indiceDireto, ofstream &indiceSecundario) {
 
-    int tamanho = 0, indice = 0;
+    int tamanho = 0, indice = 0, typePosition = 0;
     indice = input.tellg();
     input.read((char *) &tamanho, sizeof(int)); // ler o comprimeoto em binario da string
     char *buffer = new char[tamanho + 1];
     input.read(buffer, tamanho); // ler os dados da string
     buffer[tamanho] = '\0';
     char *id = new char[7];
+    char *title = new char[256];
 
-    getId(buffer, id);
-    output << id << '|' << indice << endl;
+    typePosition = getId(buffer, id);
+    getTitle(buffer, title, typePosition);
+    indiceDireto << id << '|' << indice << endl;
+    indiceSecundario << id << '|' << title << endl;
 
     delete[] buffer;
+    delete[] title;
     delete[]id;
     return indice;
 }

@@ -35,3 +35,12 @@ int File::open(ofstream &input) {
 File::~File() {
     cout << "Destructor the File\n";
 }
+
+int File::open_out(ofstream &input) {
+    input.open(name, ios_base::out);
+    if (!input.is_open()) {
+        cerr << "Erro ao abrir arquivo: " << name;
+        return 0;
+    }
+    return 1;
+}

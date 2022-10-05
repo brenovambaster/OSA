@@ -28,9 +28,9 @@ public:
      *
      * @return Retorna a posicão no final da leitura de cada registro
      */
-    int generateFiles(ifstream &input, ofstream &output);
+    int generateFiles(ifstream &input, ofstream &indiceDireto, ofstream &indiceSecundario);
 
-    void generateIndiceIdPimary_Secondary(ifstream &input, ofstream &output);
+    void generateIndiceIdPimary_Secondary(ifstream &input, ofstream &primaryIndexFile, ofstream &secondaryIndexFile);
 
 
     virtual ~Buffer();

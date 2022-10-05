@@ -20,6 +20,7 @@ public:
     int open(ifstream &input);
 
     int open(ofstream &input);
+    int open_out(ofstream &input);
 
     virtual ~File();
 
