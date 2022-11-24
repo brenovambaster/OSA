@@ -6,5 +6,5 @@ using namespace std;
 #include "Movie.h"
 
 Movie::~Movie() {
-    cout << "Destructor the Movie\n";
+
 }

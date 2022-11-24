@@ -34,9 +34,9 @@ public:
 
     int searchShowId(string id);
 
-    int searchTitle(string id);
+    int searchTitle(string titler);
 
-    void showRegister(string id);
+    void showRegister(int posicao);
 
     virtual ~Buffer();
 };

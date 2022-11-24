@@ -112,9 +112,14 @@ Buffer::generateFiles(ifstream &input, ofstream &indiceDireto, ofstream &indiceS
 
 
 Buffer::~Buffer() {
-    cout << "Destructor the Buffer\n";
+
 }
 
+/**
+ * @brief Pesquisa pelo id e mostra o respectivo registro pesquisado.
+ * @param id
+ * @return  Retorna a posicao do registro;
+ */
 int Buffer::searchShowId(string id) {
     fstream arquivo;
     File f1;
@@ -127,7 +132,8 @@ int Buffer::searchShowId(string id) {
         getline(arquivo, posicao, '\n');
 
         if (id == id_arquivo) {
-            cout << "O ID " << id << "foi encontrado. Posicao: " << posicao << endl;
+            cout << "O ID " << id << " foi encontrado. Posicao: " << posicao << endl;
+            showRegister(stoi(posicao));
             return stoi(posicao);
         }
     }
@@ -136,12 +142,27 @@ int Buffer::searchShowId(string id) {
     return -1;
 }
 
-int Buffer::searchTitle(string id) {
+int Buffer::searchTitle(string title) {
+    /*  ALGORITMO A SER IMPLEMENTADO;
+     * Ir ao arquivo de IndiceSecundario.bin e pesquisar pelo título. Ao encontrar, extrair o ID do filme.
+     * Com o ID do filme em mãos, chamar a função searchShowID(), irá mostrar o registro.
+     * */
+
     return 0;
 }
 
-void Buffer::showRegister(string id) {
-
+void Buffer::showRegister(int posicao) {
+    ifstream arquivo;
+    int tamanho;
+    File f1;
+    f1.name = "Binary_transcription.bin";
+    f1.open_binary(arquivo);
+    arquivo.seekg(posicao, ios_base::beg);
+    arquivo.read((char *) &tamanho, sizeof(int)); // ler o comprimeoto em binario da string
+    char *buffer = new char[tamanho + 1];
+    arquivo.read(buffer, tamanho); // ler os dados da string
+    cout << buffer;
+    arquivo.close();
 }
 
 

@@ -8,7 +8,7 @@
 int File::open(ifstream &input) {
     input.open(name, ios_base::in);
     if (!input.is_open()) {
-        cerr << "Erro ao abrir arquivo: " << name;
+        cerr << "Erro ao abrir arquivo: " << name << ". Tente primeiro criar um arquivo vazio com o mesmo nome";
         return 0;
     }
     return 1;
@@ -17,7 +17,8 @@ int File::open(ifstream &input) {
 int File::open(fstream &input) {
     input.open(name, ios::in | ios::out);
     if (!input.is_open()) {
-        cerr << "Erro ao abrir arquivo: " << name;
+        cerr << "Erro ao abrir arquivo: " << name
+             << ". Tente primeiro criar um arquivo vazio com o mesmo nome";;
         return 0;
     }
     return 1;
@@ -27,7 +28,7 @@ int File::open(fstream &input) {
 int File::open_binary(ifstream &input) {
     input.open(name, ios_base::binary);
     if (!input.is_open()) {
-        cerr << "Erro ao abrir arquivo: " << name;
+        cerr << "Erro ao abrir arquivo: " << name << ". Tente primeiro criar um arquivo vazio com o mesmo nome";
         return 0;
     }
     return 1;
@@ -36,20 +37,20 @@ int File::open_binary(ifstream &input) {
 int File::open(ofstream &input) {
     input.open(name, ios_base::binary);
     if (!input.is_open()) {
-        cerr << "Erro ao abrir arquivo: " << name;
+        cerr << "Erro ao abrir arquivo: " << name << ". Tente primeiro criar um arquivo vazio com o mesmo nome";
         return 0;
     }
     return 1;
 }
 
 File::~File() {
-    cout << "Destructor the File\n";
+
 }
 
 int File::open_out(ofstream &input) {
     input.open(name, ios_base::out);
     if (!input.is_open()) {
-        cerr << "Erro ao abrir arquivo: " << name;
+        cerr << "Erro ao abrir arquivo: " << name << ". Tente primeiro criar um arquivo vazio com o mesmo nome";
         return 0;
     }
     return 1;
