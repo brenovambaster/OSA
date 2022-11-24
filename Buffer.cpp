@@ -147,6 +147,24 @@ int Buffer::searchTitle(string title) {
      * Ir ao arquivo de IndiceSecundario.bin e pesquisar pelo título. Ao encontrar, extrair o ID do filme.
      * Com o ID do filme em mãos, chamar a função searchShowID(), irá mostrar o registro.
      * */
+    fstream indiceSecundario;
+    File f1;
+    f1.name = "IndiceSecundario.txt";
+    f1.open(indiceSecundario);
+    string showID, title_str;
+
+    while (!indiceSecundario.eof()) {
+        getline(indiceSecundario, showID, '|');
+        getline(indiceSecundario, title_str, '\n');
+        if (title_str.find(title) != string::npos) {
+            cout << "*** Encontrado uma correspondencia de [" << title << "] em " << showID << endl;
+            cout << "Informacoes do Registro:\n";
+            searchShowId(showID); // mostrar o registro encontrado;
+        }
+        // fazer verificaçao se o titulo procuaro é igual ao title_str
+        // se for igual ou parecido, chamar searchShowId(id);
+    }
+    indiceSecundario.close();
 
     return 0;
 }
@@ -161,7 +179,8 @@ void Buffer::showRegister(int posicao) {
     arquivo.read((char *) &tamanho, sizeof(int)); // ler o comprimeoto em binario da string
     char *buffer = new char[tamanho + 1];
     arquivo.read(buffer, tamanho); // ler os dados da string
-    cout << buffer;
+    cout << "    " << buffer << endl;
+    cout << "-------------------------------------------------------------------------------------\n";
     arquivo.close();
 }
 

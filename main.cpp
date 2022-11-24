@@ -49,7 +49,7 @@ int main() {
 
     b.searchShowId("s12");
     b.searchTitle("Roxi");
-    
+    b.searchTitle("an");
 
     data.close();
     input.close();
