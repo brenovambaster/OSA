@@ -32,6 +32,11 @@ public:
 
     void generateIndiceIdPimary_Secondary(ifstream &input, ofstream &primaryIndexFile, ofstream &secondaryIndexFile);
 
+    int searchShowId(string id);
+
+    int searchTitle(string id);
+
+    void showRegister(string id);
 
     virtual ~Buffer();
 };

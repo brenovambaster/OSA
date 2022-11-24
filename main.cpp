@@ -45,7 +45,7 @@ int main() {
     }
     source.close();
     b.generateIndiceIdPimary_Secondary(input, indiceDireto, indiceSecundario);
-
+    b.searchShowId("s13");
     data.close();
     input.close();
     indiceDireto.close();

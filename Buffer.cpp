@@ -115,5 +115,34 @@ Buffer::~Buffer() {
     cout << "Destructor the Buffer\n";
 }
 
+int Buffer::searchShowId(string id) {
+    fstream arquivo;
+    File f1;
+    f1.name = "IndicePrimario.bin";
+    f1.open(arquivo);
+    string id_arquivo, posicao;
+
+    while (!arquivo.eof()) {
+        getline(arquivo, id_arquivo, '|');
+        getline(arquivo, posicao, '\n');
+
+        if (id == id_arquivo) {
+            cout << "O ID " << id << "foi encontrado. Posicao: " << posicao << endl;
+            return stoi(posicao);
+        }
+    }
+    arquivo.close();
+    cout << "O ID " << id << " não foi encontrado" << endl;
+    return -1;
+}
+
+int Buffer::searchTitle(string id) {
+    return 0;
+}
+
+void Buffer::showRegister(string id) {
+
+}
+
 
 
